@@ -17,31 +17,233 @@
     <LibraryReferences>{6c5c965b-30cb-4348-a604-8767a7940133}</LibraryReferences>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DUTs\StrFuncParoEnviar.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\Str_Config_ADS_to_PLC.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\Str_HistTablasMySQL.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Events_Alarms\Eventos_PLC.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Events_Alarms\Events.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GlobalTextList.TcGTLO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GVLs\Fecha_PLC.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="GVLs\Lectura_PLCs.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="GVLs\RegistroLocalDataBase.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="GVLs\Var_Com_CH2_CH3.TcGVL">
+      <SubType>Code</SubType>
+      <LinkAlways>true</LinkAlways>
+    </Compile>
+    <Compile Include="Lectura_PLC.TcTTO">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="PlcTask.TcTTO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\FBs\fbLectura_a_PLC.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\FBs\fb_Funciones_Paro.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\FBs\FuncGeneralesCortHum3.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\FBs\FuncGeneralesCortHum2.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\FBs\TempParoAcumulad.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Fecha_Hora_PLC.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Funciones comunes\Utilidades.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Lectura_a_PLC_Maestro\Lectura_Maestro.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Lectura_a_PLC_Maestro\MAIN_Orden_Lectura_PLCs.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\MAIN.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\PRGs_Nodos\FuncParoNodoLocalCorteH3.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\PRGs_Nodos\FuncParoNodoRemote1CorteH2.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VISUs\Ajustes_CorteH2.TcVIS">
+      <SubType>Code</SubType>
+      <DependentUpon>VISUs\VisualizationManager.TcVMO</DependentUpon>
+    </Compile>
+    <Compile Include="VISUs\Ajustes_CorteH3.TcVIS">
+      <SubType>Code</SubType>
+      <DependentUpon>VISUs\VisualizationManager.TcVMO</DependentUpon>
+    </Compile>
+    <Compile Include="VISUs\DiagnosticoFB.TcVIS">
+      <SubType>Code</SubType>
+      <DependentUpon>VISUs\VisualizationManager.TcVMO</DependentUpon>
+    </Compile>
+    <Compile Include="VISUs\HistTablaTablas_Ch2.TcVIS">
+      <SubType>Code</SubType>
+      <DependentUpon>VISUs\VisualizationManager.TcVMO</DependentUpon>
+    </Compile>
+    <Compile Include="VISUs\HistTablaTablas_Ch3.TcVIS">
+      <SubType>Code</SubType>
+      <DependentUpon>VISUs\VisualizationManager.TcVMO</DependentUpon>
+    </Compile>
+    <Compile Include="VISUs\Home_CortH2.TcVIS">
+      <SubType>Code</SubType>
+      <DependentUpon>VISUs\VisualizationManager.TcVMO</DependentUpon>
+    </Compile>
+    <Compile Include="VISUs\Home_CortH3.TcVIS">
+      <SubType>Code</SubType>
+      <DependentUpon>VISUs\VisualizationManager.TcVMO</DependentUpon>
+    </Compile>
+    <Compile Include="VISUs\Home_Sel_Maq.TcVIS">
+      <SubType>Code</SubType>
+      <DependentUpon>VISUs\VisualizationManager.TcVMO</DependentUpon>
+    </Compile>
+    <Compile Include="VISUs\IMAGENES\Imagenes.TcIPO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VISUs\ImagePool.TcIPO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VISUs\Listas_Para_Desplegables\FormatoTabla.TcTLO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VISUs\Modelo_Tabla_Ch2.TcVIS">
+      <SubType>Code</SubType>
+      <DependentUpon>VISUs\VisualizationManager.TcVMO</DependentUpon>
+    </Compile>
+    <Compile Include="VISUs\Modelo_Tabla_Ch3.TcVIS">
+      <SubType>Code</SubType>
+      <DependentUpon>VISUs\VisualizationManager.TcVMO</DependentUpon>
+    </Compile>
+    <Compile Include="VISUs\VisualizationManager.TcVMO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="VISUs\V_Emerg_Fin_Prod_Ch2.TcVIS">
+      <SubType>Code</SubType>
+      <DependentUpon>VISUs\VisualizationManager.TcVMO</DependentUpon>
+    </Compile>
+    <Compile Include="VISUs\V_Emerg_Fin_Prod_Ch3.TcVIS">
+      <SubType>Code</SubType>
+      <DependentUpon>VISUs\VisualizationManager.TcVMO</DependentUpon>
+    </Compile>
+    <Compile Include="VISU_TASK.TcTTO">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DUTs" />
+    <Folder Include="Events_Alarms" />
     <Folder Include="GVLs" />
+    <Folder Include="POUs\FBs" />
+    <Folder Include="POUs\Lectura_a_PLC_Maestro" />
+    <Folder Include="POUs\Funciones comunes" />
+    <Folder Include="POUs\PRGs_Nodos" />
     <Folder Include="VISUs" />
     <Folder Include="POUs" />
+    <Folder Include="VISUs\IMAGENES" />
+    <Folder Include="VISUs\Listas_Para_Desplegables" />
   </ItemGroup>
   <ItemGroup>
+    <PlaceholderReference Include="CmpBitmapPool">
+      <DefaultResolution>CmpBitmapPool, * (System)</DefaultResolution>
+      <Namespace>CmpBitmapPool</Namespace>
+    </PlaceholderReference>
+    <PlaceholderReference Include="System_VisuElemMeter">
+      <DefaultResolution>VisuElemMeter, 3.5.13.0 (System)</DefaultResolution>
+      <Namespace>VisuElemMeter</Namespace>
+      <SystemLibrary>true</SystemLibrary>
+      <ResolverGuid>2717eb6a-dd07-4c66-8d8d-cacebd7b18ae</ResolverGuid>
+    </PlaceholderReference>
+    <PlaceholderReference Include="System_VisuElems">
+      <DefaultResolution>VisuElems, 3.5.13.40 (System)</DefaultResolution>
+      <Namespace>VisuElems</Namespace>
+      <SystemLibrary>true</SystemLibrary>
+      <ResolverGuid>2717eb6a-dd07-4c66-8d8d-cacebd7b18ae</ResolverGuid>
+    </PlaceholderReference>
+    <PlaceholderReference Include="System_VisuElemsSpecialControls">
+      <DefaultResolution>VisuElemsSpecialControls, 3.5.13.0 (System)</DefaultResolution>
+      <Namespace>VisuElemsSpecialControls</Namespace>
+      <SystemLibrary>true</SystemLibrary>
+      <ResolverGuid>2717eb6a-dd07-4c66-8d8d-cacebd7b18ae</ResolverGuid>
+    </PlaceholderReference>
+    <PlaceholderReference Include="System_VisuElemsWinControls">
+      <DefaultResolution>VisuElemsWinControls, 3.5.13.20 (System)</DefaultResolution>
+      <Namespace>VisuElemsWinControls</Namespace>
+      <SystemLibrary>true</SystemLibrary>
+      <ResolverGuid>2717eb6a-dd07-4c66-8d8d-cacebd7b18ae</ResolverGuid>
+    </PlaceholderReference>
+    <PlaceholderReference Include="System_VisuElemTextEditor">
+      <DefaultResolution>VisuElemTextEditor, 3.5.13.0 (System)</DefaultResolution>
+      <Namespace>VisuElemTextEditor</Namespace>
+      <SystemLibrary>true</SystemLibrary>
+      <ResolverGuid>2717eb6a-dd07-4c66-8d8d-cacebd7b18ae</ResolverGuid>
+    </PlaceholderReference>
+    <PlaceholderReference Include="system_visuinputs">
+      <DefaultResolution>visuinputs, 3.5.13.0 (system)</DefaultResolution>
+      <Namespace>visuinputs</Namespace>
+      <SystemLibrary>true</SystemLibrary>
+      <ResolverGuid>2717eb6a-dd07-4c66-8d8d-cacebd7b18ae</ResolverGuid>
+    </PlaceholderReference>
+    <PlaceholderReference Include="System_VisuNativeControl">
+      <DefaultResolution>VisuNativeControl, 3.5.13.0 (System)</DefaultResolution>
+      <Namespace>VisuNativeControl</Namespace>
+      <SystemLibrary>true</SystemLibrary>
+      <ResolverGuid>2717eb6a-dd07-4c66-8d8d-cacebd7b18ae</ResolverGuid>
+    </PlaceholderReference>
     <PlaceholderReference Include="Tc2_Standard">
       <DefaultResolution>Tc2_Standard, * (Beckhoff Automation GmbH)</DefaultResolution>
       <Namespace>Tc2_Standard</Namespace>
+    </PlaceholderReference>
+    <PlaceholderReference Include="Tc2_SUPS">
+      <DefaultResolution>Tc2_SUPS, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc2_SUPS</Namespace>
     </PlaceholderReference>
     <PlaceholderReference Include="Tc2_System">
       <DefaultResolution>Tc2_System, * (Beckhoff Automation GmbH)</DefaultResolution>
       <Namespace>Tc2_System</Namespace>
     </PlaceholderReference>
+    <PlaceholderReference Include="Tc2_Utilities">
+      <DefaultResolution>Tc2_Utilities, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc2_Utilities</Namespace>
+    </PlaceholderReference>
+    <PlaceholderReference Include="Tc3_EventLogger">
+      <DefaultResolution>Tc3_EventLogger, * (Beckhoff Automation GmbH)</DefaultResolution>
+      <Namespace>Tc3_EventLogger</Namespace>
+    </PlaceholderReference>
     <PlaceholderReference Include="Tc3_Module">
       <DefaultResolution>Tc3_Module, * (Beckhoff Automation GmbH)</DefaultResolution>
       <Namespace>Tc3_Module</Namespace>
+    </PlaceholderReference>
+    <PlaceholderReference Include="VisuUtils">
+      <DefaultResolution>Visu Utils, * (System)</DefaultResolution>
+      <Namespace>VU</Namespace>
     </PlaceholderReference>
   </ItemGroup>
   <ItemGroup>
@@ -52,19 +254,19 @@
   <ProjectExtensions>
     <PlcProjectOptions>
       <XmlArchive>
-  <Data>
-    <o xml:space="preserve" t="OptionKey">
+        <Data>
+          <o xml:space="preserve" t="OptionKey">
       <v n="Name">"&lt;ProjectRoot&gt;"</v>
       <d n="SubKeys" t="Hashtable" />
       <d n="Values" t="Hashtable" />
     </o>
-  </Data>
-  <TypeList>
-    <Type n="Hashtable">System.Collections.Hashtable</Type>
-    <Type n="OptionKey">{54dd0eac-a6d8-46f2-8c27-2f43c7e49861}</Type>
-    <Type n="String">System.String</Type>
-  </TypeList>
-</XmlArchive>
+        </Data>
+        <TypeList>
+          <Type n="Hashtable">System.Collections.Hashtable</Type>
+          <Type n="OptionKey">{54dd0eac-a6d8-46f2-8c27-2f43c7e49861}</Type>
+          <Type n="String">System.String</Type>
+        </TypeList>
+      </XmlArchive>
     </PlcProjectOptions>
   </ProjectExtensions>
 </Project>

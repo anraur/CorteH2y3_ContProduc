@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="FuncGeneralesCortHum2" Id="{7471dcf2-099e-491e-b730-8b9e0f310740}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FuncGeneralesCortHum2
+VAR_INPUT
+IndexListFormatoTabla:INT;
+IndexJustificacionParo:INT;
+END_VAR
+VAR_OUTPUT
+	//Modelo dividido en strings para DataBase
+	s_ModeloActualTabla:STRING;
+	s_FormatoActualTabla:STRING;
+	s_EspesorActualTabla:STRING;
+	s_ModeloEleccionTabla:STRING;
+	s_FormatoEleccionTabla:STRING;
+	s_EspesorEleccionTabla:STRING;
+	//Comunes
+	s_JustificaParoComun:STRING;
+	s_FechaInicModeloTab:STRING;
+END_VAR
+VAR
+	Reset_Fin_Prod:BOOL;
+	P_FinProduccion:BOOL;
+	P_EscribirModelo:BOOL;
+	pul_Justif_Paro:BOOL;
+	EscribeHistoricTablas:BOOL;
+	FlancFiltUpFtcEscHistTab:R_TRIG;
+	Cont1:INT;
+	Cont2:INT;
+	Cont3:INT;
+	Cont4:INT;
+END_VAR
+VAR PERSISTENT 
+	PointerHistTablas:INT;
+END_VAR
+	]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//                             >>>>>>>>>>>>>>>> Modelo de la tabla <<<<<<<<<<<<<<<<<
+
+//Fin de producción 		
+IF P_FinProduccion THEN 
+Fin_Produccion();
+END_IF;
+IF P_EscribirModelo THEN
+	ListFormatoTabla(); 
+	Inicio_Nuevo_Modelo();
+	
+END_IF
+
+
+//Envío de la linea de la tabla para el historico de control producción en el HMI del operario
+ IF FlancFiltUpFtcEscHistTab.Q THEN 
+	 EscStrHistoricoTablas();
+ END_IF
+
+
+Direccionamiento_variables_com();
+FlancFiltUpFtcEscHistTab(CLK := FuncParoNodoRemote1CorteH2.Funci_CortHum2.tFiltro_up_Ftc.Q);]]></ST>
+    </Implementation>
+    <Action Name="Direccionamiento_variables_com" Id="{d1fd0a99-c695-4bb8-84da-1d32a07ee56e}">
+      <Implementation>
+        <ST><![CDATA[	//                           	>>>>>>>>>>>>>>>>>>>>>>>>>>>>      STRING      <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    Var_Com_CH2_CH3.aStringCom[84] := s_ModeloActualTabla;
+	Var_Com_CH2_CH3.aStringCom[85] := s_FormatoActualTabla;
+	Var_Com_CH2_CH3.aStringCom[86] := s_EspesorActualTabla;
+	Var_Com_CH2_CH3.aStringCom[87] := s_FechaInicModeloTab;
+	
+	
+	]]></ST>
+      </Implementation>
+    </Action>
+    <Method Name="EscStrHistoricoTablas" Id="{269f1542-bd87-4547-915c-15ca576ff061}">
+      <Declaration><![CDATA[METHOD EscStrHistoricoTablas : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[// Recorre todas las lineas de la tabla una posición y añade la nueva tabla en la linea 0 para mayor coodidad al visulizar
+
+FOR PointerHistTablas := 100 TO 1 BY -1 DO 
+	RegistroLocalDataBase.aHistoricStrTablasCH2[PointerHistTablas].ID := RegistroLocalDataBase.aHistoricStrTablasCH2[PointerHistTablas-1].ID;
+	RegistroLocalDataBase.aHistoricStrTablasCH2[PointerHistTablas].Fecha := RegistroLocalDataBase.aHistoricStrTablasCH2[PointerHistTablas-1].Fecha;
+	RegistroLocalDataBase.aHistoricStrTablasCH2[PointerHistTablas].Modelo := RegistroLocalDataBase.aHistoricStrTablasCH2[PointerHistTablas-1].Modelo;
+	RegistroLocalDataBase.aHistoricStrTablasCH2[PointerHistTablas].Formato := RegistroLocalDataBase.aHistoricStrTablasCH2[PointerHistTablas-1].Formato;
+	RegistroLocalDataBase.aHistoricStrTablasCH2[PointerHistTablas].Espesor :=RegistroLocalDataBase.aHistoricStrTablasCH2[PointerHistTablas-1].Espesor;
+	RegistroLocalDataBase.aHistoricStrTablasCH2[PointerHistTablas].Maquina := RegistroLocalDataBase.aHistoricStrTablasCH2[PointerHistTablas-1].Maquina;
+	RegistroLocalDataBase.aHistoricStrTablasCH2[PointerHistTablas].Cont_Piezas := RegistroLocalDataBase.aHistoricStrTablasCH2[PointerHistTablas-1].Cont_Piezas;
+	RegistroLocalDataBase.aHistoricStrTablasCH2[PointerHistTablas].t_Entre_Piez_Ftc := RegistroLocalDataBase.aHistoricStrTablasCH2[PointerHistTablas-1].t_Entre_Piez_Ftc;
+	RegistroLocalDataBase.aHistoricStrTablasCH2[PointerHistTablas].S_Justi_Paro_Ftc := RegistroLocalDataBase.aHistoricStrTablasCH2[PointerHistTablas-1].S_Justi_Paro_Ftc;
+	
+END_FOR
+//Estructura de la array de la tabla para visualizar el historico de la tablas pasadas
+RegistroLocalDataBase.aHistoricStrTablasCH2[0].ID := PointerHistTablas;
+RegistroLocalDataBase.aHistoricStrTablasCH2[0].Fecha := Fecha_PLC.StringDateHourMin;
+RegistroLocalDataBase.aHistoricStrTablasCH2[0].Modelo := FuncParoNodoRemote1CorteH2.sModeloActualTabla;
+RegistroLocalDataBase.aHistoricStrTablasCH2[0].Formato := FuncParoNodoRemote1CorteH2.sFormatoActualTabla;
+RegistroLocalDataBase.aHistoricStrTablasCH2[0].Espesor :=FuncParoNodoRemote1CorteH2.sEspesorActualTabla;
+RegistroLocalDataBase.aHistoricStrTablasCH2[0].Maquina := 'Corte húmedo 4';
+RegistroLocalDataBase.aHistoricStrTablasCH2[0].Cont_Piezas := FuncParoNodoRemote1CorteH2.Funci_CortHum2.Cont_Piezas_Ftc;
+RegistroLocalDataBase.aHistoricStrTablasCH2[0].t_Entre_Piez_Ftc := FuncParoNodoRemote1CorteH2.Funci_CortHum2.t_Entre_Piez_Ftc;
+RegistroLocalDataBase.aHistoricStrTablasCH2[0].S_Justi_Paro_Ftc := FuncParoNodoRemote1CorteH2.Funci_CortHum2.S_Justi_Paro_Ftc;
+
+
+
+
+
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Fin_Produccion" Id="{09b8c572-5c3a-4e70-85bf-28e67f798611}">
+      <Declaration><![CDATA[METHOD Fin_Produccion : BOOL
+VAR_INPUT	
+END_VAR
+var
+	Puls_Fin_Produccion:BOOL;	
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[//Valores por defecto del modelo y fecha de inicio modelo
+
+s_ModeloActualTabla:= 'Sin modelo de pieza';
+s_ModeloEleccionTabla:= 'Sin modelo de pieza';
+s_FormatoActualTabla:= 'Sin modelo de pieza';
+s_FormatoEleccionTabla:= 'Sin modelo de pieza';
+s_EspesorActualTabla:= 'Sin modelo de pieza';
+s_EspesorEleccionTabla:= 'Sin modelo de pieza';
+s_FechaInicModeloTab:= 'Sin modelo de pieza';
+ 
+//Reset contador de piezas 
+FuncParoNodoRemote1CorteH2.Funci_CortHum2.Fin_Produccion();]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="Inicio_Nuevo_Modelo" Id="{6e34c88f-6316-4e55-a455-ab346fa6806d}">
+      <Declaration><![CDATA[METHOD Inicio_Nuevo_Modelo : BOOL
+VAR_INPUT
+END_VAR
+VAR
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[
+// Envías la fecha de inicio modelo de tabla 
+s_FechaInicModeloTab:=Fecha_PLC.Mes_Dia_Hora_Min_Real;
+
+//Envías el modelo de la tabla de la variable preelección  
+s_ModeloActualTabla:=s_ModeloEleccionTabla;
+s_FormatoActualTabla:=s_FormatoEleccionTabla;
+s_EspesorActualTabla:= s_EspesorEleccionTabla;
+
+
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="ListadoJustificacionParo" Id="{13001cad-234f-4f0f-8bae-77022675632d}">
+      <Declaration><![CDATA[METHOD ListadoJustificacionParo : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[// Envío Justificación de los paros prefijados
+
+(*Listado:  0:Sin asignar
+			1: Descanso
+			2: Avería
+			3: Cambio de discos 
+			4: Cambio de formato
+			5: Cambio caballete/bandeja 
+			6: Mantenimiento
+			7: Falta material 
+			8: Preparación material 
+			9: Limpieza fin de turno 
+			10: Ninguno de la lista			 
+*)
+//Descanso
+IF IndexJustificacionParo = 1 THEN 
+	FuncParoNodoRemote1CorteH2.s_JustifParoCH2 := 'Descanso';
+END_IF
+// Avería 
+IF IndexJustificacionParo = 2 THEN 
+	FuncParoNodoRemote1CorteH2.s_JustifParoCH2 := 'Avería';
+END_IF
+//Cambio de discos 
+IF IndexJustificacionParo = 3 THEN 
+	FuncParoNodoRemote1CorteH2.s_JustifParoCH2 := 'Cambio de discos';
+END_IF
+// Cambio de formato
+IF IndexJustificacionParo = 4 THEN 
+	FuncParoNodoRemote1CorteH2.s_JustifParoCH2 := 'Cambio de formato';
+END_IF
+//Cambio caballete/bandeja
+IF IndexJustificacionParo = 5 THEN 
+	FuncParoNodoRemote1CorteH2.s_JustifParoCH2 := 'Cambio caballete/bandeja';
+END_IF
+// Mantenimiento
+IF IndexJustificacionParo = 6 THEN 
+	FuncParoNodoRemote1CorteH2.s_JustifParoCH2 := 'Mantenimiento';
+END_IF
+// Falta de material 
+IF IndexJustificacionParo = 7 THEN 
+	FuncParoNodoRemote1CorteH2.s_JustifParoCH2 := 'Falta de material';
+END_IF
+//Preparación de material 
+IF IndexJustificacionParo = 8 THEN 
+	FuncParoNodoRemote1CorteH2.s_JustifParoCH2 := 'Preparación de material';
+END_IF
+// Limpieza fin de turno
+IF IndexJustificacionParo = 9 THEN 
+	FuncParoNodoRemote1CorteH2.s_JustifParoCH2 := 'Limpieza fin de turno';
+END_IF]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="ListFormatoTabla" Id="{1541a739-4ceb-482a-8fdf-49cb1d316e54}">
+      <Declaration><![CDATA[METHOD ListFormatoTabla : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[// Función para poder realizar el desplegable de formato de la tabla en el Visu
+IF IndexListFormatoTabla <> 6 THEN 
+	IF IndexListFormatoTabla = 1 THEN 
+		s_FormatoEleccionTabla:='17x17';
+		Cont1:=Cont1+1;
+	END_IF
+	IF IndexListFormatoTabla = 2 THEN 
+		s_FormatoEleccionTabla:='20x65';
+		Cont2:=Cont2+1;
+	END_IF
+	IF IndexListFormatoTabla = 3 THEN 
+		s_FormatoEleccionTabla:='30x15';
+	END_IF
+	IF IndexListFormatoTabla = 4 THEN 
+		s_FormatoEleccionTabla:='30x30';
+	END_IF
+	IF IndexListFormatoTabla = 5 THEN 
+		s_FormatoEleccionTabla:='03x03';
+	END_IF
+
+END_IF
+]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="FuncGeneralesCortHum2">
+      <LineId Id="25" Count="6" />
+      <LineId Id="102" Count="0" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="101" Count="0" />
+      <LineId Id="33" Count="0" />
+      <LineId Id="136" Count="5" />
+      <LineId Id="133" Count="0" />
+      <LineId Id="35" Count="0" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="71" Count="0" />
+    </LineIds>
+    <LineIds Name="FuncGeneralesCortHum2.Direccionamiento_variables_com">
+      <LineId Id="2" Count="0" />
+      <LineId Id="1" Count="0" />
+      <LineId Id="10" Count="0" />
+      <LineId Id="12" Count="1" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="6" Count="1" />
+    </LineIds>
+    <LineIds Name="FuncGeneralesCortHum2.EscStrHistoricoTablas">
+      <LineId Id="54" Count="0" />
+      <LineId Id="65" Count="0" />
+      <LineId Id="64" Count="0" />
+      <LineId Id="55" Count="8" />
+      <LineId Id="66" Count="0" />
+      <LineId Id="14" Count="0" />
+      <LineId Id="36" Count="9" />
+      <LineId Id="35" Count="0" />
+      <LineId Id="15" Count="0" />
+      <LineId Id="34" Count="0" />
+      <LineId Id="17" Count="1" />
+      <LineId Id="10" Count="0" />
+    </LineIds>
+    <LineIds Name="FuncGeneralesCortHum2.Fin_Produccion">
+      <LineId Id="49" Count="0" />
+      <LineId Id="48" Count="0" />
+      <LineId Id="45" Count="0" />
+      <LineId Id="47" Count="0" />
+      <LineId Id="68" Count="1" />
+      <LineId Id="67" Count="0" />
+      <LineId Id="70" Count="0" />
+      <LineId Id="66" Count="0" />
+      <LineId Id="41" Count="0" />
+      <LineId Id="71" Count="1" />
+    </LineIds>
+    <LineIds Name="FuncGeneralesCortHum2.Inicio_Nuevo_Modelo">
+      <LineId Id="8" Count="1" />
+      <LineId Id="5" Count="0" />
+      <LineId Id="12" Count="0" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="10" Count="0" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="19" Count="0" />
+      <LineId Id="14" Count="0" />
+      <LineId Id="13" Count="0" />
+    </LineIds>
+    <LineIds Name="FuncGeneralesCortHum2.ListadoJustificacionParo">
+      <LineId Id="5" Count="0" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="6" Count="0" />
+      <LineId Id="10" Count="8" />
+      <LineId Id="55" Count="0" />
+      <LineId Id="8" Count="0" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="19" Count="0" />
+      <LineId Id="21" Count="2" />
+      <LineId Id="25" Count="1" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="27" Count="0" />
+      <LineId Id="29" Count="1" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="31" Count="0" />
+      <LineId Id="33" Count="1" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="35" Count="0" />
+      <LineId Id="37" Count="1" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="39" Count="0" />
+      <LineId Id="41" Count="1" />
+      <LineId Id="40" Count="0" />
+      <LineId Id="43" Count="0" />
+      <LineId Id="45" Count="1" />
+      <LineId Id="44" Count="0" />
+      <LineId Id="47" Count="0" />
+      <LineId Id="49" Count="1" />
+      <LineId Id="48" Count="0" />
+      <LineId Id="51" Count="0" />
+      <LineId Id="53" Count="1" />
+      <LineId Id="52" Count="0" />
+    </LineIds>
+    <LineIds Name="FuncGeneralesCortHum2.ListFormatoTabla">
+      <LineId Id="5" Count="0" />
+      <LineId Id="10" Count="1" />
+      <LineId Id="13" Count="0" />
+      <LineId Id="33" Count="0" />
+      <LineId Id="14" Count="0" />
+      <LineId Id="16" Count="1" />
+      <LineId Id="34" Count="0" />
+      <LineId Id="15" Count="0" />
+      <LineId Id="19" Count="1" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="22" Count="1" />
+      <LineId Id="21" Count="0" />
+      <LineId Id="25" Count="1" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="29" Count="0" />
+      <LineId Id="12" Count="0" />
+      <LineId Id="9" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

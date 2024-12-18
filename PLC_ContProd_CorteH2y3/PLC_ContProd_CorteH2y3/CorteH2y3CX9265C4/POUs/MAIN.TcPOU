@@ -3,14 +3,31 @@
   <POU Name="MAIN" Id="{40a4b2da-b081-4022-8cc5-935887cb0bb9}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
-Prueba:bool;
+	// UPS variables persistentes
+	fbUPS: FB_S_UPS_CX81xx;//Instancia de la UPS
+	// Entradas
+	id0Local   AT %I*: BYTE;
+	id0Remoto1 AT %I*: BYTE;
+	// Salidas
+	od0Local   AT %Q*: BYTE;
+	od0Remoto1 AT %Q*: BYTE;
+	fbUtilidades: Utilidades;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[]]></ST>
+      <ST><![CDATA[fbUPS(iPLCPort:= 851,);
+Fecha_Hora_PLC();
+Events();
+fbUtilidades();
+FuncParoNodoLocalCorteH3();
+FuncParoNodoRemote1CorteH2();]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
-      <LineId Id="2" Count="0" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="15" Count="0" />
+      <LineId Id="26" Count="0" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="28" Count="1" />
     </LineIds>
   </POU>
 </TcPlcObject>

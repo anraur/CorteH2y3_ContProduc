@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="FuncParoNodoRemote1CorteH2" Id="{b571b0c4-8bf7-4987-8e23-7504406df052}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM FuncParoNodoRemote1CorteH2
+VAR
+	Funci_CortHum2:fb_Funciones_Paro;
+	FunGeneCortHum2: FuncGeneralesCortHum2;
+	//Entradas Corte húmedo 4
+	Ftc_CortHum2: BOOL;	
+	ForzadoFtcCortHum2:BOOL;	
+	Consenso_CortHum2: BOOL;
+	//Entradas fotocelula 2 libre
+	Ftc2_Libre: BOOL;
+	ForzadoFtc2_Libre: BOOL;
+	Consenso_Ftc2_Libre: BOOL;
+	//Entradas fotocelula 3 libre
+	Ftc3_Libre: BOOL;
+	ForzadoFtc3_Libre: BOOL;
+	Consenso_Ftc3_Libre: BOOL;
+	//Entradas fotocelula 4 libre
+	Ftc4_Libre: BOOL;
+	ForzadoFtc4_Libre: BOOL;
+	Consenso_Ftc4_Libre: BOOL;
+	
+//	Estructuras de las variables a enviar  
+	CortHum2StrFuncParoEnviar:StrFuncParoEnviar;
+	Ftc2StrFuncParoEnviar:StrFuncParoEnviar;	
+	Ftc3StrFuncParoEnviar:StrFuncParoEnviar;
+	Ftc4StrFuncParoEnviar:StrFuncParoEnviar;
+	
+
+END_VAR
+VAR_INPUT
+	sFormatoEleccionTabla:STRING;
+	sModeloEleccionTabla:STRING;
+	sEspesorEleccionTabla:STRING;
+END_VAR
+VAR RETAIN
+END_VAR
+VAR PERSISTENT 
+	HMI_Tiempo_Offset_MParo:INT:=5;
+	HMI_TiempoFiltradoFotocel:TIME:=T#2S;
+// Modelo de la tabla y fecha cambio de modelo
+	sModeloActualTabla:STRING;
+	sFormatoActualTabla:STRING;
+	sEspesorActualTabla:STRING;
+	sFechaInicModeloTab:STRING;
+
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//Funciones de paro para cada zona(Fotocelula)
+
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>         	Corte húmedo 4         <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+Funci_CortHum2(Fotocelula:=Ftc_CortHum2 OR ForzadoFtcCortHum2, 
+					Tiempo_Offset_MParo:=HMI_Tiempo_Offset_MParo, 
+					TiempoFiltradoFotocel:=HMI_TiempoFiltradoFotocel,
+					_StrFuncParoEnviar => CortHum2StrFuncParoEnviar );
+					
+						
+						
+Direccionamiento_variables_com();
+LinkadoEntradas();
+FunGeneCortHum2(s_ModeloActualTabla => sModeloActualTabla,s_ModeloEleccionTabla => sModeloEleccionTabla,s_FechaInicModeloTab=>sFechaInicModeloTab,s_FormatoActualTabla=>sFormatoActualTabla,s_FormatoEleccionTabla=>sFormatoEleccionTabla,s_EspesorActualTabla=>sEspesorActualTabla,s_EspesorEleccionTabla=>sEspesorEleccionTabla);
+]]></ST>
+    </Implementation>
+    <Action Name="Direccionamiento_variables_com" Id="{9a6c5483-c055-40df-90b9-c33d20c86098}">
+      <Implementation>
+        <ST><![CDATA[// Direccionamiento de las variables a la marca que les corresponde donde despés se leeran desde el plc maestro
+
+
+
+//								>>>>>>>>>>>>>>>>>>>>>>>>>>>>      WORDS    <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+
+	Var_Com_CH2_CH3.aWordCom[50]:= INT_TO_WORD (CortHum2StrFuncParoEnviar.Cont_Piezas);	    //Contadores de cada fotocelula 
+	Var_Com_CH2_CH3.aWordCom[51]:= INT_TO_WORD (Ftc2StrFuncParoEnviar.Cont_Piezas);		//Contadores de cada fotocelula 
+	Var_Com_CH2_CH3.aWordCom[52]:= INT_TO_WORD (Ftc3StrFuncParoEnviar.Cont_Piezas);		//Contadores de cada fotocelula 
+	Var_Com_CH2_CH3.aWordCom[53]:= INT_TO_WORD (Ftc4StrFuncParoEnviar.Cont_Piezas);		//Contadores de cada fotocelula 
+	Var_Com_CH2_CH3.aWordCom[54]:= INT_TO_WORD (CortHum2StrFuncParoEnviar.Min_Parado_Ftc);			//Minutos actuales parado
+	Var_Com_CH2_CH3.aWordCom[55]:= INT_TO_WORD (Ftc2StrFuncParoEnviar.Min_Parado_Ftc);			//Minutos actuales parado
+	Var_Com_CH2_CH3.aWordCom[56]:= INT_TO_WORD (Ftc3StrFuncParoEnviar.Min_Parado_Ftc);			//Minutos actuales parado
+	Var_Com_CH2_CH3.aWordCom[57]:= INT_TO_WORD (Ftc4StrFuncParoEnviar.Min_Parado_Ftc);			//Minutos actuales parado
+	
+	
+	
+//                           	>>>>>>>>>>>>>>>>>>>>>>>>>>>>      TIME   <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+	
+	
+	Var_Com_CH2_CH3.aTimeCom[25]:=  CortHum2StrFuncParoEnviar.t_Entre_Piez_Ftc; 			//Tiempo entre piezas
+	Var_Com_CH2_CH3.aTimeCom[26]:=  Ftc2StrFuncParoEnviar.t_Entre_Piez_Ftc;			//Tiempo entre piezas
+	Var_Com_CH2_CH3.aTimeCom[27]:= Ftc3StrFuncParoEnviar.t_Entre_Piez_Ftc;				//Tiempo entre piezas
+	Var_Com_CH2_CH3.aTimeCom[28]:= Ftc4StrFuncParoEnviar.t_Entre_Piez_Ftc;				//Tiempo entre piezas
+	Var_Com_CH2_CH3.aTimeCom[29]:= CortHum2StrFuncParoEnviar.t_Entr_Piez_Ante_Ftc; 		//Tiempo entre piezas anterior
+	Var_Com_CH2_CH3.aTimeCom[30]:= Ftc2StrFuncParoEnviar.t_Entr_Piez_Ante_Ftc; 		//Tiempo entre piezas anterior
+	Var_Com_CH2_CH3.aTimeCom[31]:= Ftc3StrFuncParoEnviar.t_Entr_Piez_Ante_Ftc; 		//Tiempo entre piezas anterior
+	Var_Com_CH2_CH3.aTimeCom[32]:= Ftc4StrFuncParoEnviar.t_Entr_Piez_Ante_Ftc; 		//Tiempo entre piezas anterior
+	
+	
+	
+	
+//                           	>>>>>>>>>>>>>>>>>>>>>>>>>>>>      STRING  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    Var_Com_CH2_CH3.aStringCom[20] := CortHum2StrFuncParoEnviar.H_InParo_Ftc;         //Hora inicio paro 
+	Var_Com_CH2_CH3.aStringCom[21] := Ftc2StrFuncParoEnviar.H_InParo_Ftc;         //Hora inicio paro 
+	Var_Com_CH2_CH3.aStringCom[22] := Ftc3StrFuncParoEnviar.H_InParo_Ftc;         //Hora inicio paro 
+	Var_Com_CH2_CH3.aStringCom[23] := Ftc4StrFuncParoEnviar.H_InParo_Ftc;         //Hora inicio paro 
+	Var_Com_CH2_CH3.aStringCom[24] := CortHum2StrFuncParoEnviar.H_FinParo_Ftc;        //Hora Fin paro 
+	Var_Com_CH2_CH3.aStringCom[25] := Ftc2StrFuncParoEnviar.H_FinParo_Ftc;        //Hora Fin paro 
+	Var_Com_CH2_CH3.aStringCom[26] := Ftc3StrFuncParoEnviar.H_FinParo_Ftc;        //Hora Fin paro 
+	Var_Com_CH2_CH3.aStringCom[27] := Ftc4StrFuncParoEnviar.H_FinParo_Ftc;        //Hora Fin paro 
+	Var_Com_CH2_CH3.aStringCom[28] := CortHum2StrFuncParoEnviar.S_Justi_Paro_Ftc;		//Justificación del paro
+	Var_Com_CH2_CH3.aStringCom[29] := Ftc2StrFuncParoEnviar.S_Justi_Paro_Ftc;		//Justificación del paro
+	Var_Com_CH2_CH3.aStringCom[30] := Ftc3StrFuncParoEnviar.S_Justi_Paro_Ftc;		//Justificación del paro
+	Var_Com_CH2_CH3.aStringCom[31] := Ftc4StrFuncParoEnviar.S_Justi_Paro_Ftc;		//Justificación del paro
+	
+	
+//                           	>>>>>>>>>>>>>>>>>>>>>>>>>>>>      Bool  <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<	
+
+	Var_Com_CH2_CH3.aBoolCom[99] := CortHum2StrFuncParoEnviar.Fotocelula;						//Fotocelula Real
+	Var_Com_CH2_CH3.aBoolCom[100] := Ftc2StrFuncParoEnviar.Fotocelula;						//Fotocelula Real
+	Var_Com_CH2_CH3.aBoolCom[101] := Ftc3StrFuncParoEnviar.Fotocelula;						//Fotocelula Real
+	Var_Com_CH2_CH3.aBoolCom[102] := Ftc4StrFuncParoEnviar.Fotocelula;						//Fotocelula Real
+	Var_Com_CH2_CH3.aBoolCom[103] := CortHum2StrFuncParoEnviar.MParo_Ftc;				//Marca de paro 
+	Var_Com_CH2_CH3.aBoolCom[104] := Ftc2StrFuncParoEnviar.MParo_Ftc;				//Marca de paro 
+	Var_Com_CH2_CH3.aBoolCom[105] := Ftc3StrFuncParoEnviar.MParo_Ftc;				//Marca de paro 
+	Var_Com_CH2_CH3.aBoolCom[106] := Ftc4StrFuncParoEnviar.MParo_Ftc;				//Marca de paro 
+	Var_Com_CH2_CH3.aBoolCom[107] := CortHum2StrFuncParoEnviar.M_SinParo_Ftc;			//Marca de sin paro activo
+	Var_Com_CH2_CH3.aBoolCom[108] := Ftc2StrFuncParoEnviar.M_SinParo_Ftc;			//Marca de sin paro activo
+	Var_Com_CH2_CH3.aBoolCom[109] := Ftc3StrFuncParoEnviar.M_SinParo_Ftc;			//Marca de sin paro activo
+	Var_Com_CH2_CH3.aBoolCom[110] := Ftc4StrFuncParoEnviar.M_SinParo_Ftc;			//Marca de sin paro activo
+	Var_Com_CH2_CH3.aBoolCom[111] := CortHum2StrFuncParoEnviar.tFiltro_up_Ftc;			//Q Temp Up Filtro Fotocelulas
+	Var_Com_CH2_CH3.aBoolCom[112] := Ftc2StrFuncParoEnviar.tFiltro_up_Ftc;			//Q Temp Up Filtro Fotocelulas
+	Var_Com_CH2_CH3.aBoolCom[113] := Ftc3StrFuncParoEnviar.tFiltro_up_Ftc;			//Q Temp Up Filtro Fotocelulas
+	Var_Com_CH2_CH3.aBoolCom[114] := Ftc4StrFuncParoEnviar.tFiltro_up_Ftc;			//Q Temp Up Filtro Fotocelulas
+	Var_Com_CH2_CH3.aBoolCom[115] := CortHum2StrFuncParoEnviar.tFiltro_down_Ftc;		//Q Temp Down Filtro Fotocelulas
+	Var_Com_CH2_CH3.aBoolCom[116] := Ftc2StrFuncParoEnviar.tFiltro_down_Ftc;		//Q Temp Down Filtro Fotocelulas
+	Var_Com_CH2_CH3.aBoolCom[117] := Ftc3StrFuncParoEnviar.tFiltro_down_Ftc;		//Q Temp Down Filtro Fotocelulas
+	Var_Com_CH2_CH3.aBoolCom[118] := Ftc4StrFuncParoEnviar.tFiltro_down_Ftc;		//Q Temp Down Filtro Fotocelulas]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="LinkadoEntradas" Id="{eb7001b0-3fe8-4e31-8789-fb1c87a2d6cc}">
+      <Implementation>
+        <ST><![CDATA[// Linkado entradas
+
+Ftc_CortHum2:=      main.id0Remoto1.0;
+Consenso_CortHum2:= TRUE;//main.id0Remoto1.1;
+
+
+Ftc2_Libre:=      main.id0Remoto1.2;
+Consenso_Ftc3_Libre:= TRUE;// main.id0Remoto1.3;
+
+
+Ftc3_Libre:=      main.id0Remoto1.4;
+Consenso_Ftc3_Libre:= TRUE;// main.id0Remoto1.5;
+
+
+Ftc4_Libre:=      main.id0Remoto1.6;
+Consenso_Ftc4_Libre:= TRUE;// main.id0Remoto1.7;
+
+
+
+
+
+]]></ST>
+      </Implementation>
+    </Action>
+    <Property Name="s_JustifParoCH2" Id="{e1150afd-0172-460e-b15c-cf2fea9a9d9a}">
+      <Declaration><![CDATA[PROPERTY PUBLIC s_JustifParoCH2 : STRING]]></Declaration>
+      <Get Name="Get" Id="{cee2c715-0e39-4d03-ab11-882b9aae53d9}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[s_JustifParoCH2:= Funci_CortHum2.S_Justi_Paro_Ftc;]]></ST>
+        </Implementation>
+      </Get>
+      <Set Name="Set" Id="{990f3cec-87d0-4dc6-a414-005d3907530d}">
+        <Declaration><![CDATA[VAR
+END_VAR
+]]></Declaration>
+        <Implementation>
+          <ST><![CDATA[Funci_CortHum2.S_Justi_Paro_Ftc:=s_JustifParoCH2;]]></ST>
+        </Implementation>
+      </Set>
+    </Property>
+    <LineIds Name="FuncParoNodoRemote1CorteH2">
+      <LineId Id="43" Count="7" />
+      <LineId Id="86" Count="1" />
+      <LineId Id="89" Count="1" />
+      <LineId Id="154" Count="0" />
+      <LineId Id="162" Count="0" />
+    </LineIds>
+    <LineIds Name="FuncParoNodoRemote1CorteH2.Direccionamiento_variables_com">
+      <LineId Id="1" Count="0" />
+      <LineId Id="3" Count="2" />
+      <LineId Id="2" Count="0" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="6" Count="0" />
+      <LineId Id="9" Count="1" />
+      <LineId Id="8" Count="0" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="15" Count="2" />
+      <LineId Id="26" Count="0" />
+      <LineId Id="43" Count="2" />
+      <LineId Id="23" Count="0" />
+      <LineId Id="27" Count="0" />
+      <LineId Id="29" Count="6" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="48" Count="5" />
+      <LineId Id="55" Count="3" />
+      <LineId Id="61" Count="2" />
+      <LineId Id="60" Count="0" />
+      <LineId Id="59" Count="0" />
+      <LineId Id="64" Count="4" />
+      <LineId Id="71" Count="0" />
+      <LineId Id="70" Count="0" />
+      <LineId Id="73" Count="2" />
+      <LineId Id="72" Count="0" />
+      <LineId Id="76" Count="2" />
+      <LineId Id="69" Count="0" />
+      <LineId Id="79" Count="7" />
+      <LineId Id="88" Count="2" />
+    </LineIds>
+    <LineIds Name="FuncParoNodoRemote1CorteH2.LinkadoEntradas">
+      <LineId Id="2" Count="0" />
+      <LineId Id="40" Count="0" />
+      <LineId Id="3" Count="1" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="5" Count="2" />
+      <LineId Id="34" Count="0" />
+      <LineId Id="8" Count="2" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="11" Count="2" />
+      <LineId Id="39" Count="0" />
+      <LineId Id="14" Count="3" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="FuncParoNodoRemote1CorteH2.s_JustifParoCH2.Get">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="FuncParoNodoRemote1CorteH2.s_JustifParoCH2.Set">
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
