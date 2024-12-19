@@ -1571,7 +1571,7 @@
                     <o>
                       <v n="AssignExpr">""</v>
                       <n n="Assign" />
-                      <v n="Assign33">"Ajustes_CorteH2"</v>
+                      <v n="Assign33">"Ajustes_CorteH3"</v>
                       <v n="Type" t="ChangeVisuType">Assignment</v>
                     </o>
                   </a>
@@ -6249,7 +6249,7 @@ FuncParoNodoLocalCorteH3.FunGeneCortHum3.ListadoJustificacionParo();
                     </o>
                     <o>
                       <v n="Id">2422045748L</v>
-                      <v n="Value">183</v>
+                      <v n="Value">295</v>
                     </o>
                     <o>
                       <v n="Id">2134141914L</v>
@@ -6275,7 +6275,7 @@ FuncParoNodoLocalCorteH3.FunGeneCortHum3.ListadoJustificacionParo();
                     </o>
                     <o>
                       <v n="Id">550940142L</v>
-                      <v n="Value">136</v>
+                      <v n="Value">192</v>
                     </o>
                     <o>
                       <v n="Id">1473355128L</v>
@@ -6291,7 +6291,7 @@ FuncParoNodoLocalCorteH3.FunGeneCortHum3.ListadoJustificacionParo();
                     </o>
                     <o>
                       <v n="Id">390574330L</v>
-                      <v n="Value">"%s"</v>
+                      <v n="Value">"%t[H'h'm'min']"</v>
                     </o>
                     <o>
                       <v n="Id">2597686782L</v>
@@ -6311,7 +6311,7 @@ FuncParoNodoLocalCorteH3.FunGeneCortHum3.ListadoJustificacionParo();
                     </o>
                     <o>
                       <v n="Id">823443203L</v>
-                      <v n="Value">"650"</v>
+                      <v n="Value">"56"</v>
                     </o>
                   </l>
                 </o>
@@ -6690,15 +6690,15 @@ FuncParoNodoLocalCorteH3.FunGeneCortHum3.ListadoJustificacionParo();
                     </o>
                     <o>
                       <v n="Id">1649127785L</v>
-                      <v n="Value">233</v>
+                      <v n="Value">237</v>
                     </o>
                     <o>
                       <v n="Id">357335551L</v>
-                      <v n="Value">658</v>
+                      <v n="Value">758</v>
                     </o>
                     <o>
                       <v n="Id">2422045748L</v>
-                      <v n="Value">167</v>
+                      <v n="Value">325</v>
                     </o>
                     <o>
                       <v n="Id">2134141914L</v>
@@ -6724,11 +6724,11 @@ FuncParoNodoLocalCorteH3.FunGeneCortHum3.ListadoJustificacionParo();
                     </o>
                     <o>
                       <v n="Id">550940142L</v>
-                      <v n="Value">316</v>
+                      <v n="Value">399</v>
                     </o>
                     <o>
                       <v n="Id">1473355128L</v>
-                      <v n="Value">702</v>
+                      <v n="Value">802</v>
                     </o>
                     <o>
                       <v n="Id">2678395525L</v>
@@ -6740,7 +6740,7 @@ FuncParoNodoLocalCorteH3.FunGeneCortHum3.ListadoJustificacionParo();
                     </o>
                     <o>
                       <v n="Id">390574330L</v>
-                      <v n="Value">"%s"</v>
+                      <v n="Value">"%t[H'h'm'min']"</v>
                     </o>
                     <o>
                       <v n="Id">2597686782L</v>
@@ -6760,7 +6760,7 @@ FuncParoNodoLocalCorteH3.FunGeneCortHum3.ListadoJustificacionParo();
                     </o>
                     <o>
                       <v n="Id">823443203L</v>
-                      <v n="Value">"650"</v>
+                      <v n="Value">"56"</v>
                     </o>
                   </l>
                 </o>
@@ -6830,11 +6830,11 @@ FuncParoNodoLocalCorteH3.FunGeneCortHum3.ListadoJustificacionParo();
                     </o>
                     <o>
                       <v n="Id">1649127785L</v>
-                      <v n="Value">254</v>
+                      <v n="Value">106</v>
                     </o>
                     <o>
                       <v n="Id">357335551L</v>
-                      <v n="Value">611</v>
+                      <v n="Value">775</v>
                     </o>
                     <o>
                       <v n="Id">2422045748L</v>
@@ -6972,15 +6972,15 @@ FuncParoNodoLocalCorteH3.FunGeneCortHum3.ListadoJustificacionParo();
                     </o>
                     <o>
                       <v n="Id">1649127785L</v>
-                      <v n="Value">402</v>
+                      <v n="Value">362</v>
                     </o>
                     <o>
                       <v n="Id">357335551L</v>
-                      <v n="Value">658</v>
+                      <v n="Value">661</v>
                     </o>
                     <o>
                       <v n="Id">2422045748L</v>
-                      <v n="Value">183</v>
+                      <v n="Value">388</v>
                     </o>
                     <o>
                       <v n="Id">2134141914L</v>
@@ -7006,11 +7006,11 @@ FuncParoNodoLocalCorteH3.FunGeneCortHum3.ListadoJustificacionParo();
                     </o>
                     <o>
                       <v n="Id">550940142L</v>
-                      <v n="Value">493</v>
+                      <v n="Value">556</v>
                     </o>
                     <o>
                       <v n="Id">1473355128L</v>
-                      <v n="Value">702</v>
+                      <v n="Value">705</v>
                     </o>
                     <o>
                       <v n="Id">2678395525L</v>
@@ -7022,7 +7022,7 @@ FuncParoNodoLocalCorteH3.FunGeneCortHum3.ListadoJustificacionParo();
                     </o>
                     <o>
                       <v n="Id">390574330L</v>
-                      <v n="Value">"%s"</v>
+                      <v n="Value">"%t[H'h'm'min']"</v>
                     </o>
                     <o>
                       <v n="Id">2597686782L</v>
@@ -7042,7 +7042,7 @@ FuncParoNodoLocalCorteH3.FunGeneCortHum3.ListadoJustificacionParo();
                     </o>
                     <o>
                       <v n="Id">823443203L</v>
-                      <v n="Value">"650"</v>
+                      <v n="Value">"56"</v>
                     </o>
                   </l>
                 </o>
@@ -7112,11 +7112,11 @@ FuncParoNodoLocalCorteH3.FunGeneCortHum3.ListadoJustificacionParo();
                     </o>
                     <o>
                       <v n="Id">1649127785L</v>
-                      <v n="Value">435</v>
+                      <v n="Value">469</v>
                     </o>
                     <o>
                       <v n="Id">357335551L</v>
-                      <v n="Value">611</v>
+                      <v n="Value">609</v>
                     </o>
                     <o>
                       <v n="Id">2422045748L</v>
@@ -8431,67 +8431,67 @@ FuncParoNodoLocalCorteH3.FunGeneCortHum3.ListadoJustificacionParo();
             <o n="GeneratedVisuFbDescription" t="GenericFbDescription">
               <d n="FbMethods" t="CaseInsensitiveHashtable" ckt="String" cvt="Guid">
                 <v>ContainsPoint</v>
-                <v>9d98a306-100e-4dd8-bc0f-255d03981a67</v>
+                <v>622d0de4-3773-4bc8-92d2-5c2f9f50d3b9</v>
                 <v>Destruct</v>
-                <v>6dde7d28-433e-4809-9594-315da4bbc1ba</v>
+                <v>137496c5-7df9-4910-9e53-130a78376535</v>
                 <v>ElementInfo</v>
-                <v>b1d7e3da-4daa-42b3-b0f0-9a50656029eb</v>
+                <v>f6da9f5a-5ad6-46ac-b3d0-74479a9aee94</v>
                 <v>FB_Exit</v>
-                <v>ac1fd3c9-e8d6-46da-af5e-247142d2d561</v>
+                <v>23e71a9a-0743-4569-afdc-46b19202eb71</v>
                 <v>FB_Reinit</v>
-                <v>0f10c502-998f-48b2-a9ce-8823ebc8ae45</v>
+                <v>f6540980-4c37-4017-b2a9-0c8327ed7fd8</v>
                 <v>GetClientData</v>
-                <v>2c4ab29a-852a-4f96-a1d3-08b11998536d</v>
+                <v>26b61530-70b5-4c8d-a602-1dd8ed0df8c2</v>
                 <v>GetElementArray</v>
-                <v>d59818fb-4a06-451f-b274-41426ebdc4a0</v>
+                <v>1568ebc1-179c-46b6-9aa5-6ff61093b904</v>
                 <v>GetElementIdArray</v>
-                <v>dfccee0e-89ac-4007-8c57-08e7c70b9e20</v>
+                <v>105ca303-8a74-43ee-8dce-b5f653bb9c80</v>
                 <v>GetInitializeVersion</v>
-                <v>b2a6ffec-ba5b-463d-a78d-16b5ba7e4a37</v>
+                <v>0349a374-c4c8-4ff3-bcf4-ea1d8c783ba1</v>
                 <v>GetLocalUsergroup</v>
-                <v>8ce008f3-2cbe-4189-89fe-249a65c8ee69</v>
+                <v>b67c5afb-6f7d-40da-aad4-8d586f480f43</v>
                 <v>GetName</v>
-                <v>759b0f7f-578a-41a1-89ce-51c6683eb40f</v>
+                <v>311d8792-7646-4bc4-a25e-35c8182accd9</v>
                 <v>GetNamespace</v>
-                <v>93acb129-cc85-441d-9063-19fb54ed7d29</v>
+                <v>a2521233-0ec9-4d70-9efd-615d93becc66</v>
                 <v>GetSize</v>
-                <v>88bba4d7-1e65-4954-ae0a-88bb034e44e1</v>
+                <v>93d45285-80d9-495f-a2b4-2cdb913d82c1</v>
                 <v>GetSurroundingRect</v>
-                <v>31797f24-ed37-4059-a3cf-23cce0f916f1</v>
+                <v>1de771f1-152b-48ec-bdac-81b0a6209f17</v>
                 <v>GetText</v>
-                <v>41815f1c-f7da-469c-b93b-d21d6a5644d0</v>
+                <v>4d3dd182-e059-47fd-be03-11e757510824</v>
                 <v>GetTextProperties</v>
-                <v>d1d59073-5760-442c-973f-7112b7c6869d</v>
+                <v>a0af89da-fbad-47f3-ba49-9c4c1672ff6b</v>
                 <v>GetTooltip</v>
-                <v>5aec9245-c0ba-49e3-9fd6-549e7e40d733</v>
+                <v>a8ed8d25-87a5-46f0-9604-d1ceca6514eb</v>
                 <v>GetTranslator</v>
-                <v>8f1e6419-238a-4131-9e6b-434825aed78a</v>
+                <v>337a98f9-e626-49ec-8ff3-1d3024c1157c</v>
                 <v>GetUpdateRects</v>
-                <v>e214be17-13b9-463f-b0a0-a268f3d9a069</v>
+                <v>e50ad915-c75f-4823-895e-c338cb538b80</v>
                 <v>HandleInput</v>
-                <v>bc778d40-ae53-41e2-8e68-0b6db9e2debf</v>
+                <v>01f2c045-7b44-49fd-8df4-7d66dd6cab4c</v>
                 <v>HasInputAccess</v>
-                <v>4a092186-aa84-426f-b80a-a4bad010c44f</v>
+                <v>6ba0b41b-fe9b-4863-a495-20b263dec792</v>
                 <v>HasInputAccessIntern</v>
                 <v>1ba3fc90-f9ad-5819-a2f8-5efd2c794587</v>
                 <v>HasVisibilityAccess</v>
-                <v>829745cd-64ce-42ee-a666-cfde7c9adf1f</v>
+                <v>2b8929dc-bf4a-4c77-beb8-a373876d0b04</v>
                 <v>HasVisibilityAccessIntern</v>
                 <v>e96bfda9-9d9e-5b28-bc5a-a681bafd4a01</v>
                 <v>Initialize</v>
-                <v>4332de3a-0991-4f1b-93f5-586780660d9f</v>
+                <v>3a782cd9-5541-43de-b54a-304631377e38</v>
                 <v>IsAntialiasingInactive</v>
-                <v>7fc9de66-9cdf-4693-9d8f-bc5fead96d50</v>
+                <v>0fbef883-eead-4802-bb61-d46d0e794649</v>
                 <v>Paint</v>
-                <v>4ae4073c-e9b5-4083-9fdd-d6a3c03d370e</v>
+                <v>65af8925-9610-472e-822b-a35ec4460edf</v>
                 <v>SetClientData</v>
-                <v>5bf2dcb9-2323-4786-a670-f6dce35e2b81</v>
+                <v>a343455b-2d7d-4e67-8ac7-f90edfd2e12a</v>
                 <v>SetStaticState</v>
-                <v>bb7eab82-db42-4ffd-8b9e-eaa5e1ee1546</v>
+                <v>36fc3bf2-6252-48e1-91eb-13ea407d286a</v>
                 <v>SetVisuFlagsInternal</v>
-                <v>3acbbc51-ef31-4f39-bbee-829cd554a481</v>
+                <v>f0e605cd-5fb1-4623-bba1-62a061c4969c</v>
                 <v>Update</v>
-                <v>c23e424b-d959-4974-9594-76a4d48a3f4e</v>
+                <v>d1493a10-cad1-49e2-9719-728fb5f27894</v>
               </d>
               <v n="FbName">"NotImportant"</v>
               <v n="FbGuid">{9e281147-de25-4bb2-8a2f-652225f7024c}</v>

@@ -204,6 +204,10 @@ END_IF
 // Limpieza fin de turno
 IF IndexJustificacionParo = 9 THEN 
 	FuncParoNodoRemote1CorteH2.s_JustifParoCH2 := 'Limpieza fin de turno';
+END_IF
+// No está en la lista
+IF IndexJustificacionParo = 10 THEN 
+	FuncParoNodoRemote1CorteH2.s_JustifParoCH2 := 'ESCRIBE AQUÍ LA JUSTIFICACIÓN DEL PARO';
 END_IF]]></ST>
       </Implementation>
     </Method>
@@ -328,6 +332,8 @@ END_IF
       <LineId Id="51" Count="0" />
       <LineId Id="53" Count="1" />
       <LineId Id="52" Count="0" />
+      <LineId Id="60" Count="2" />
+      <LineId Id="59" Count="0" />
     </LineIds>
     <LineIds Name="FuncGeneralesCortHum2.ListFormatoTabla">
       <LineId Id="5" Count="0" />

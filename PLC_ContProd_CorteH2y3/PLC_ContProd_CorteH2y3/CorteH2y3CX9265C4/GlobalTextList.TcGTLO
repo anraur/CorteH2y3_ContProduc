@@ -26,6 +26,36 @@
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
+              <v n="TextID">"56"</v>
+              <v n="TextDefault">"%t[H'h'm'min']"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"702"</v>
+              <v n="TextDefault">"%t[HH,mm]"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"1013"</v>
+              <v n="TextDefault">"%t[HH:mm]h"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"410"</v>
+              <v n="TextDefault">"%t[HHmm]"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"696"</v>
+              <v n="TextDefault">"%t[H]h[m]min"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"175"</v>
+              <v n="TextDefault">"%t[min]"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
               <v n="TextID">"633"</v>
               <v n="TextDefault">"%t[s,ms]"</v>
               <l n="LanguageTexts" t="ArrayList" />
@@ -198,6 +228,11 @@ CABALLETE/BANDEJA"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
+              <v n="TextID">"1029"</v>
+              <v n="TextDefault">"Fecha"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
               <v n="TextID">"394"</v>
               <v n="TextDefault">"Fecha inicio del modelo actual"</v>
               <l n="LanguageTexts" t="ArrayList" />
@@ -313,6 +348,11 @@ PLC Maestro"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
+              <v n="TextID">"733"</v>
+              <v n="TextDefault">"ID"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
               <v n="TextID">"867"</v>
               <v n="TextDefault">"INICIADA:"</v>
               <l n="LanguageTexts" t="ArrayList" />
@@ -330,6 +370,11 @@ PLC Maestro"</v>
             <o>
               <v n="TextID">"1183"</v>
               <v n="TextDefault">"Justif paro"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"895"</v>
+              <v n="TextDefault">"Justificación del paro"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
@@ -355,6 +400,11 @@ PLC Maestro"</v>
             <o>
               <v n="TextID">"1024"</v>
               <v n="TextDefault">"MANTENIMIENTO"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"596"</v>
+              <v n="TextDefault">"Maquina"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
@@ -435,6 +485,11 @@ PLC Maestro"</v>
             <o>
               <v n="TextID">"1148"</v>
               <v n="TextDefault">"NUEVO MODELO"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"145"</v>
+              <v n="TextDefault">"Numero de tablas"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
@@ -551,6 +606,11 @@ PLC Maestro"</v>
               <v n="TextID">"55"</v>
               <v n="TextDefault">"Tiempo entre Piezas
 Anterior"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"774"</v>
+              <v n="TextDefault">"Tiempo entre tablas"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>

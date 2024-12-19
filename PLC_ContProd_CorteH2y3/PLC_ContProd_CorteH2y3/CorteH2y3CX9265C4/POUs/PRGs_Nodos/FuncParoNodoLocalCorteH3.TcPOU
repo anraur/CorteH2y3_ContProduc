@@ -147,19 +147,19 @@ FunGeneCortHum3(s_ModeloActualTabla => sModeloActualTabla,
       <Implementation>
         <ST><![CDATA[// Linkado entradas
 
-Ftc_CortHum3:=      main.id0Remoto1.0;
+Ftc_CortHum3:=      main.id0Local.0;
 Consenso_CortHum3:= TRUE;//main.id0Remoto1.1;
 
 
-Ftc2_Libre:=      main.id0Remoto1.2;
+Ftc2_Libre:=      main.id0Local.2;
 Consenso_Ftc3_Libre:= TRUE;// main.id0Remoto1.3;
 
 
-Ftc3_Libre:=      main.id0Remoto1.4;
+Ftc3_Libre:=      main.id0Local.4;
 Consenso_Ftc3_Libre:= TRUE;// main.id0Remoto1.5;
 
 
-Ftc4_Libre:=      main.id0Remoto1.6;
+Ftc4_Libre:=      main.id0Local.6;
 Consenso_Ftc4_Libre:= TRUE;// main.id0Remoto1.7;
 
 

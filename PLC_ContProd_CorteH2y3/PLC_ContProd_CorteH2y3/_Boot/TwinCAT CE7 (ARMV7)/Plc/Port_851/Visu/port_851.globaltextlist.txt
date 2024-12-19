@@ -3,6 +3,12 @@ Id;Default
 650;%s
 177;%s $TContador piezas corte húmedo 4 
 771;%s $TContador piezas Multidiscos 2
+56;%t[H$'h$'m$'min$']
+702;%t[HH,mm]
+1013;%t[HH:mm]h
+410;%t[HHmm]
+696;%t[H]h[m]min
+175;%t[min]
 633;%t[s,ms]
 1163;ACEPTAR
 1790;AJUSTE$R$NMEDIDAS/PRECORTE
@@ -37,6 +43,7 @@ Id;Default
 631;Espesor
 818;Exit
 1436;FALTA DE MATERIAL
+1029;Fecha
 394;Fecha inicio del modelo actual
 297;Filtro Down
 866;Filtro Up
@@ -59,15 +66,18 @@ Id;Default
 340;Hora Inicio Paro
 358;Horno Inf.
 962;Horno Sup.
+733;ID
 867;INICIADA:
 798;Inicio
 1088;INICIO
 1183;Justif paro
+895;Justificación del paro
 266;JUSTIFICAR EL PARO ACTUAL
 1063;JUSTIFICAR PARO
 39;LIMPIEZA FIN DE TURNO
 67;Línea en paro
 1024;MANTENIMIENTO
+596;Maquina
 227;Marca Paro 
 911;Marca Sin Paro 
 316;Min
@@ -84,6 +94,7 @@ Id;Default
 1014;NINGÚN PARO ACTIVO
 615;NO ESTÁ EN LA LISTA
 1148;NUEVO MODELO
+145;Numero de tablas
 1060;Número de losas
 490;Paro activo
 1136;PARO ACTIVO
@@ -107,6 +118,7 @@ Id;Default
 906;Tiempo entre Piezas
 64;tiempo entre Piezas
 55;Tiempo entre Piezas$R$NAnterior
+774;Tiempo entre tablas
 649;Tiempo filtrado fotocelulas$R$Npara evitar parpadeos
 501;Tiempo para empezar $R$Na contar como paro
 433;Total piezas

@@ -939,8 +939,8 @@
                   <a cet="InputCloseDialogAction">
                     <o>
                       <n n="Dialog" />
-                      <v n="Dialog33">"V_Emerg_Fin_Prod_Ch2"</v>
-                      <v n="Result">"Cancel"</v>
+                      <v n="Dialog33">"V_Emerg_Fin_Prod_Ch3"</v>
+                      <v n="Result">"None"</v>
                       <v n="NumpadKeypad">false</v>
                       <v n="NumpadKeypadSet">true</v>
                     </o>

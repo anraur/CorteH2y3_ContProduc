@@ -808,7 +808,7 @@
                     </o>
                     <o>
                       <v n="Id">2232123230L</v>
-                      <v n="Value">"RegistroLocalDataBase.aHistoricStrTablasCH2[INDEX].ID"</v>
+                      <v n="Value">"ID"</v>
                     </o>
                     <o>
                       <v n="Id">2685023577L</v>
@@ -828,7 +828,7 @@
                     </o>
                     <o>
                       <v n="Id">511219082L</v>
-                      <v n="Value">"RegistroLocalDataBase.aHistoricStrTablasCH2[INDEX].Fecha"</v>
+                      <v n="Value">"Fecha"</v>
                     </o>
                     <o>
                       <v n="Id">3312258591L</v>
@@ -840,7 +840,7 @@
                     </o>
                     <o>
                       <v n="Id">1010392116L</v>
-                      <v n="Value">40</v>
+                      <v n="Value" t="Int16">200</v>
                     </o>
                     <o>
                       <v n="Id">1960173153L</v>
@@ -848,7 +848,7 @@
                     </o>
                     <o>
                       <v n="Id">1755163831L</v>
-                      <v n="Value">"RegistroLocalDataBase.aHistoricStrTablasCH2[INDEX].Modelo"</v>
+                      <v n="Value">"Modelo"</v>
                     </o>
                     <o>
                       <v n="Id">4160591745L</v>
@@ -864,7 +864,7 @@
                     </o>
                     <o>
                       <v n="Id">2998295511L</v>
-                      <v n="Value">40</v>
+                      <v n="Value" t="Int16">200</v>
                     </o>
                     <o>
                       <v n="Id">1562208915L</v>
@@ -872,7 +872,7 @@
                     </o>
                     <o>
                       <v n="Id">4092479075L</v>
-                      <v n="Value">"RegistroLocalDataBase.aHistoricStrTablasCH2[INDEX].Formato"</v>
+                      <v n="Value">"Formato"</v>
                     </o>
                     <o>
                       <v n="Id">262371475L</v>
@@ -884,7 +884,7 @@
                     </o>
                     <o>
                       <v n="Id">2115787593L</v>
-                      <v n="Value">40</v>
+                      <v n="Value" t="Int16">200</v>
                     </o>
                     <o>
                       <v n="Id">4084595458L</v>
@@ -892,7 +892,7 @@
                     </o>
                     <o>
                       <v n="Id">2237128397L</v>
-                      <v n="Value">"RegistroLocalDataBase.aHistoricStrTablasCH2[INDEX].Espesor"</v>
+                      <v n="Value">"Espesor"</v>
                     </o>
                     <o>
                       <v n="Id">4008173056L</v>
@@ -904,7 +904,7 @@
                     </o>
                     <o>
                       <v n="Id">1960399440L</v>
-                      <v n="Value">40</v>
+                      <v n="Value" t="Int16">200</v>
                     </o>
                     <o>
                       <v n="Id">244056951L</v>
@@ -912,7 +912,7 @@
                     </o>
                     <o>
                       <v n="Id">505689113L</v>
-                      <v n="Value">"RegistroLocalDataBase.aHistoricStrTablasCH2[INDEX].Maquina"</v>
+                      <v n="Value">"Maquina"</v>
                     </o>
                     <o>
                       <v n="Id">2340480326L</v>
@@ -924,7 +924,7 @@
                     </o>
                     <o>
                       <v n="Id">3094565582L</v>
-                      <v n="Value">40</v>
+                      <v n="Value" t="Int16">200</v>
                     </o>
                     <o>
                       <v n="Id">2699334374L</v>
@@ -932,7 +932,7 @@
                     </o>
                     <o>
                       <v n="Id">1757482276L</v>
-                      <v n="Value">"RegistroLocalDataBase.aHistoricStrTablasCH2[INDEX].Cont_Piezas"</v>
+                      <v n="Value">"Numero de tablas"</v>
                     </o>
                     <o>
                       <v n="Id">606709900L</v>
@@ -944,7 +944,7 @@
                     </o>
                     <o>
                       <v n="Id">922506541L</v>
-                      <v n="Value">40</v>
+                      <v n="Value" t="Int16">200</v>
                     </o>
                     <o>
                       <v n="Id">2301371924L</v>
@@ -952,7 +952,7 @@
                     </o>
                     <o>
                       <v n="Id">4088588272L</v>
-                      <v n="Value">"RegistroLocalDataBase.aHistoricStrTablasCH2[INDEX].t_Entre_Piez_Ftc"</v>
+                      <v n="Value">"Tiempo entre tablas"</v>
                     </o>
                     <o>
                       <v n="Id">1095668682L</v>
@@ -964,7 +964,7 @@
                     </o>
                     <o>
                       <v n="Id">4199962035L</v>
-                      <v n="Value">40</v>
+                      <v n="Value" t="Int16">200</v>
                     </o>
                     <o>
                       <v n="Id">658814853L</v>
@@ -972,7 +972,7 @@
                     </o>
                     <o>
                       <v n="Id">2243050616L</v>
-                      <v n="Value">"RegistroLocalDataBase.aHistoricStrTablasCH2[INDEX].S_Justi_Paro_Ftc"</v>
+                      <v n="Value">"Justificación del paro"</v>
                     </o>
                     <o>
                       <v n="Id">1037165547L</v>
@@ -984,11 +984,51 @@
                     </o>
                     <o>
                       <v n="Id">594954015L</v>
-                      <v n="Value">40</v>
+                      <v n="Value" t="Int16">200</v>
                     </o>
                     <o>
                       <v n="Id">2846806207L</v>
                       <v n="Value">"HCENTER"</v>
+                    </o>
+                    <o>
+                      <v n="Id">3736079596L</v>
+                      <v n="Value">"733"</v>
+                    </o>
+                    <o>
+                      <v n="Id">1893244285L</v>
+                      <v n="Value">"1029"</v>
+                    </o>
+                    <o>
+                      <v n="Id">1494231439L</v>
+                      <v n="Value">"531"</v>
+                    </o>
+                    <o>
+                      <v n="Id">4151883806L</v>
+                      <v n="Value">"419"</v>
+                    </o>
+                    <o>
+                      <v n="Id">176242795L</v>
+                      <v n="Value">"631"</v>
+                    </o>
+                    <o>
+                      <v n="Id">202788361L</v>
+                      <v n="Value">true</v>
+                    </o>
+                    <o>
+                      <v n="Id">2766787066L</v>
+                      <v n="Value">"596"</v>
+                    </o>
+                    <o>
+                      <v n="Id">2367776008L</v>
+                      <v n="Value">"145"</v>
+                    </o>
+                    <o>
+                      <v n="Id">592049305L</v>
+                      <v n="Value">"774"</v>
+                    </o>
+                    <o>
+                      <v n="Id">2913178531L</v>
+                      <v n="Value">"895"</v>
                     </o>
                   </l>
                 </o>
@@ -1151,67 +1191,67 @@
             <o n="GeneratedVisuFbDescription" t="GenericFbDescription">
               <d n="FbMethods" t="CaseInsensitiveHashtable_1" ckt="String" cvt="Guid">
                 <v>ContainsPoint</v>
-                <v>36dfcad5-dc82-4437-a523-b7fd10332903</v>
+                <v>23046eb6-4d43-458b-b146-b2cb503faadd</v>
                 <v>Destruct</v>
-                <v>9647f236-9bdd-4b3c-9b7d-9361fc215637</v>
+                <v>b0bd1521-1e72-4252-ba83-b8ed36840d7d</v>
                 <v>ElementInfo</v>
-                <v>3c3ba84d-a004-433c-adbc-30b131868f45</v>
+                <v>bd52115c-1a6c-4d4c-b72b-8a29b96e2a46</v>
                 <v>FB_Exit</v>
-                <v>4d6ee286-580b-4362-b416-777d30850b75</v>
+                <v>d7591ce8-4ada-44b8-b1c7-1899b618dfcc</v>
                 <v>FB_Reinit</v>
-                <v>1611cbc9-0c34-42eb-8c49-650d748250b0</v>
+                <v>b3d82502-2dd3-4b3a-b60d-11ca0233c41d</v>
                 <v>GetClientData</v>
-                <v>ac00a630-6bf3-436e-9792-4860c0a58cb9</v>
+                <v>5364cd0a-ff18-422d-b1df-9417f01cba9d</v>
                 <v>GetElementArray</v>
-                <v>23e4f5c7-5d4c-401d-836e-74778d41a63f</v>
+                <v>1b078edd-b8f8-443d-9c86-501c5cc9b350</v>
                 <v>GetElementIdArray</v>
-                <v>9a2aece7-c53e-40cd-b3a2-29e0e6ea5dbe</v>
+                <v>a9ad651a-437b-484c-98a9-a2af4293e4cf</v>
                 <v>GetInitializeVersion</v>
-                <v>be944d22-e951-4ffc-95b9-38fc07692523</v>
+                <v>b65dcfad-04e4-4686-bbaf-99ad15142884</v>
                 <v>GetLocalUsergroup</v>
-                <v>13c8c6a5-8a71-481c-b831-52e645f74542</v>
+                <v>0d5acb12-e342-4b5e-b491-1c22fd99aa8a</v>
                 <v>GetName</v>
-                <v>325eca79-9a62-4574-97d7-9ce7732226ad</v>
+                <v>c4282710-23d4-4a1e-a6fe-108e00f0c874</v>
                 <v>GetNamespace</v>
-                <v>cded7ae9-3e1d-43bf-a6bc-00b674c7b30c</v>
+                <v>ea7357f1-7e33-4ee3-be1e-2fd6899bce6f</v>
                 <v>GetSize</v>
-                <v>1e142879-062b-4ae8-92cd-52d7baa08c68</v>
+                <v>1b1ca531-0db1-4989-b53d-79874f4797cd</v>
                 <v>GetSurroundingRect</v>
-                <v>4fcbeedb-6964-4252-9545-729bd26241f5</v>
+                <v>1b4df8f2-6eaf-4fbf-8334-2b6ec43ec593</v>
                 <v>GetText</v>
-                <v>51e4b703-0579-451c-b5e6-a11206e51def</v>
+                <v>d81128be-49bf-47ab-90df-49842643221b</v>
                 <v>GetTextProperties</v>
-                <v>451bb904-a2c5-47ea-8350-a83390690a84</v>
+                <v>1438dc84-25c5-4ff5-8abd-c8fc58d30409</v>
                 <v>GetTooltip</v>
-                <v>e5afe5a5-74a1-42fb-b743-6b5e4e7b865d</v>
+                <v>e99db6c1-d017-4c01-b17f-c56e81d4d3b2</v>
                 <v>GetTranslator</v>
-                <v>995ca1ef-eb73-4d01-948f-d3e48784d019</v>
+                <v>47e18988-7e47-493f-9a8c-7b7f52e7c642</v>
                 <v>GetUpdateRects</v>
-                <v>86eec0bd-af27-4943-b943-6c22f9a18ba7</v>
+                <v>7770bd1c-fcf6-49c7-9b55-5cfeb546db83</v>
                 <v>HandleInput</v>
-                <v>1b43db7d-aacd-4625-86ed-4997ec4f8186</v>
+                <v>eb8354dd-ae3f-4881-afb8-59e42c45006b</v>
                 <v>HasInputAccess</v>
-                <v>770d2b18-f50e-4efb-929d-b4e0c082514e</v>
+                <v>c3312c3c-e960-477a-ad67-1bc7b0298776</v>
                 <v>HasInputAccessIntern</v>
-                <v>c576fda9-f4ca-40fc-adec-1312ecded4a8</v>
+                <v>21cafc8f-9442-5df9-94f5-052ee69af058</v>
                 <v>HasVisibilityAccess</v>
-                <v>84a67202-46c8-4b75-8f16-58b1e60e3237</v>
+                <v>92755be7-7778-4e3e-aa34-9917424e81ab</v>
                 <v>HasVisibilityAccessIntern</v>
-                <v>6f3f0703-85b9-4695-b98f-b8f5383d8082</v>
+                <v>a6bf4ae9-4726-5c16-99b7-f394c7009fdb</v>
                 <v>Initialize</v>
-                <v>f8f558c3-2d55-4d1d-9e23-036abb87164f</v>
+                <v>94f140c9-6b03-4fac-bfc8-e55e417d90f9</v>
                 <v>IsAntialiasingInactive</v>
-                <v>5f84e06c-9ee6-49b7-98b3-a6240b8437fb</v>
+                <v>5d42a0b5-7922-4ecc-b3a7-14f03e55f4e0</v>
                 <v>Paint</v>
-                <v>267319cf-320b-4c49-9201-d1b9813a1191</v>
+                <v>f70bb519-c3fd-47d1-a081-6a6ca72d9bfc</v>
                 <v>SetClientData</v>
-                <v>7f474a56-d2dc-4973-90a8-52d03cdba036</v>
+                <v>e272e802-177d-4ae3-bd4b-f7b8b4d36664</v>
                 <v>SetStaticState</v>
-                <v>60aa6209-c14b-4d7d-9366-3654882e23a2</v>
+                <v>1f4cf0b4-a8ef-44a1-b8ff-f0fac7d1adf4</v>
                 <v>SetVisuFlagsInternal</v>
-                <v>73bac010-8c64-4e38-9905-9c2400d6254a</v>
+                <v>b11d7ef7-f57b-44cc-8277-c715871c28eb</v>
                 <v>Update</v>
-                <v>ed68c9a5-cfab-4623-88f4-aeebc3966463</v>
+                <v>ceec39fa-c266-414e-8aeb-60e8836d5527</v>
               </d>
               <v n="FbName">"NotImportant"</v>
               <v n="FbGuid">{169d72ac-5c2b-4084-979b-fd36a443784b}</v>
