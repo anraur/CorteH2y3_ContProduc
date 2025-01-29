@@ -1,9 +1,11 @@
 Id;Default
 0;Sin seleccionar
-1;170x170
-2;200x650
-3;300x150
-4;300x300
-5;30x30
-6;Ninguno de la lista
+1;3200 X 1500
+2;3600 X 1200
+3;1800 X 1200
+4;3000 X 1000
+5;2600 X 1500
+6;800 X 700
+7;2700 X 1000
+8;Ninguno de la lista
 ;

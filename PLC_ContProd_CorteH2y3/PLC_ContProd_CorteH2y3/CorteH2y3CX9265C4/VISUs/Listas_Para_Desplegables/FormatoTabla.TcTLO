@@ -13,31 +13,41 @@
             </o>
             <o>
               <v n="TextID">"1"</v>
-              <v n="TextDefault">"170x170"</v>
+              <v n="TextDefault">"3200 X 1500"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
               <v n="TextID">"2"</v>
-              <v n="TextDefault">"200x650"</v>
+              <v n="TextDefault">"3600 X 1200"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
               <v n="TextID">"3"</v>
-              <v n="TextDefault">"300x150"</v>
+              <v n="TextDefault">"1800 X 1200"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
               <v n="TextID">"4"</v>
-              <v n="TextDefault">"300x300"</v>
+              <v n="TextDefault">"3000 X 1000"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
               <v n="TextID">"5"</v>
-              <v n="TextDefault">"30x30"</v>
+              <v n="TextDefault">"2600 X 1500"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
               <v n="TextID">"6"</v>
+              <v n="TextDefault">"800 X 700"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"7"</v>
+              <v n="TextDefault">"2700 X 1000"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
+              <v n="TextID">"8"</v>
               <v n="TextDefault">"Ninguno de la lista"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>

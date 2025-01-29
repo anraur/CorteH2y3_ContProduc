@@ -218,25 +218,30 @@ END_VAR
 ]]></Declaration>
       <Implementation>
         <ST><![CDATA[// Función para poder realizar el desplegable de formato de la tabla en el Visu
-IF IndexListFormatoTabla <> 6 THEN 
+IF IndexListFormatoTabla <> 8 THEN 
 	IF IndexListFormatoTabla = 1 THEN 
-		s_FormatoEleccionTabla:='17x17';
+		s_FormatoEleccionTabla:='3200 X 1500';
 		Cont1:=Cont1+1;
 	END_IF
 	IF IndexListFormatoTabla = 2 THEN 
-		s_FormatoEleccionTabla:='20x65';
+		s_FormatoEleccionTabla:='3600 X 1200';
 		Cont2:=Cont2+1;
 	END_IF
 	IF IndexListFormatoTabla = 3 THEN 
-		s_FormatoEleccionTabla:='30x15';
+		s_FormatoEleccionTabla:='1800 X 1200';
 	END_IF
 	IF IndexListFormatoTabla = 4 THEN 
-		s_FormatoEleccionTabla:='30x30';
+		s_FormatoEleccionTabla:='3000 X 1000';
 	END_IF
 	IF IndexListFormatoTabla = 5 THEN 
-		s_FormatoEleccionTabla:='03x03';
+		s_FormatoEleccionTabla:='2600 X 1500';
 	END_IF
-
+	IF IndexListFormatoTabla = 6 THEN 
+		s_FormatoEleccionTabla:='800 X 700';
+	END_IF
+	IF IndexListFormatoTabla = 7 THEN 
+		s_FormatoEleccionTabla:='2700 X 1000';
+	END_IF
 END_IF
 ]]></ST>
       </Implementation>
@@ -350,7 +355,10 @@ END_IF
       <LineId Id="21" Count="0" />
       <LineId Id="25" Count="1" />
       <LineId Id="24" Count="0" />
+      <LineId Id="38" Count="1" />
       <LineId Id="29" Count="0" />
+      <LineId Id="41" Count="1" />
+      <LineId Id="40" Count="0" />
       <LineId Id="12" Count="0" />
       <LineId Id="9" Count="0" />
     </LineIds>
