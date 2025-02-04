@@ -5,6 +5,7 @@
 VAR_INPUT
 IndexListFormatoTabla:INT;
 IndexJustificacionParo:INT;
+IndexListEspesorTabla:INT;
 END_VAR
 VAR_OUTPUT
 	//Modelo dividido en strings para DataBase
@@ -43,6 +44,7 @@ Fin_Produccion();
 END_IF;
 IF P_EscribirModelo THEN
 	ListFormatoTabla(); 
+	ListadoEspesorTabla();
 	Inicio_Nuevo_Modelo();
 	
 END_IF
@@ -95,7 +97,7 @@ RegistroLocalDataBase.aHistoricStrTablasCH2[0].Fecha := Fecha_PLC.StringDateHour
 RegistroLocalDataBase.aHistoricStrTablasCH2[0].Modelo := FuncParoNodoRemote1CorteH2.sModeloActualTabla;
 RegistroLocalDataBase.aHistoricStrTablasCH2[0].Formato := FuncParoNodoRemote1CorteH2.sFormatoActualTabla;
 RegistroLocalDataBase.aHistoricStrTablasCH2[0].Espesor :=FuncParoNodoRemote1CorteH2.sEspesorActualTabla;
-RegistroLocalDataBase.aHistoricStrTablasCH2[0].Maquina := 'Corte húmedo 4';
+RegistroLocalDataBase.aHistoricStrTablasCH2[0].Maquina := 'Corte húmedo 2';
 RegistroLocalDataBase.aHistoricStrTablasCH2[0].Cont_Piezas := FuncParoNodoRemote1CorteH2.Funci_CortHum2.Cont_Piezas_Ftc;
 RegistroLocalDataBase.aHistoricStrTablasCH2[0].t_Entre_Piez_Ftc := FuncParoNodoRemote1CorteH2.Funci_CortHum2.t_Entre_Piez_Ftc;
 RegistroLocalDataBase.aHistoricStrTablasCH2[0].S_Justi_Paro_Ftc := FuncParoNodoRemote1CorteH2.Funci_CortHum2.S_Justi_Paro_Ftc;
@@ -147,6 +149,29 @@ s_EspesorActualTabla:= s_EspesorEleccionTabla;
 
 
 ]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="ListadoEspesorTabla" Id="{6f67b2d8-11e8-46f1-b789-578e22ee98db}">
+      <Declaration><![CDATA[METHOD ListadoEspesorTabla : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[// Función para poder realizar el desplegable de espesor de la tabla en el Visu
+IF IndexListEspesorTabla <> 5 THEN 
+	IF IndexListEspesorTabla = 1 THEN 
+		s_EspesorEleccionTabla:='3';
+	END_IF
+	IF IndexListEspesorTabla = 2 THEN 
+		s_EspesorEleccionTabla:='6';
+	END_IF
+	IF IndexListEspesorTabla = 3 THEN 
+		s_EspesorEleccionTabla:='12';
+	END_IF
+	IF IndexListEspesorTabla = 4 THEN 
+		s_EspesorEleccionTabla:='20';
+	END_IF
+END_IF]]></ST>
       </Implementation>
     </Method>
     <Method Name="ListadoJustificacionParo" Id="{13001cad-234f-4f0f-8bae-77022675632d}">
@@ -249,6 +274,7 @@ END_IF
     <LineIds Name="FuncGeneralesCortHum2">
       <LineId Id="25" Count="6" />
       <LineId Id="102" Count="0" />
+      <LineId Id="175" Count="0" />
       <LineId Id="32" Count="0" />
       <LineId Id="101" Count="0" />
       <LineId Id="33" Count="0" />
@@ -303,6 +329,12 @@ END_IF
       <LineId Id="19" Count="0" />
       <LineId Id="14" Count="0" />
       <LineId Id="13" Count="0" />
+    </LineIds>
+    <LineIds Name="FuncGeneralesCortHum2.ListadoEspesorTabla">
+      <LineId Id="69" Count="3" />
+      <LineId Id="74" Count="2" />
+      <LineId Id="78" Count="6" />
+      <LineId Id="59" Count="0" />
     </LineIds>
     <LineIds Name="FuncGeneralesCortHum2.ListadoJustificacionParo">
       <LineId Id="5" Count="0" />

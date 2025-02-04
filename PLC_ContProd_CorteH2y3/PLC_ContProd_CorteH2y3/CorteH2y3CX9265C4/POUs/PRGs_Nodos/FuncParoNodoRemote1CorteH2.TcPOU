@@ -140,7 +140,12 @@ FunGeneCortHum2(s_ModeloActualTabla => sModeloActualTabla,s_ModeloEleccionTabla 
     </Action>
     <Action Name="LinkadoEntradas" Id="{eb7001b0-3fe8-4e31-8789-fb1c87a2d6cc}">
       <Implementation>
-        <ST><![CDATA[// Linkado entradas
+        <ST><![CDATA[
+
+
+
+
+// Linkado entradas
 
 Ftc_CortHum2:=      main.id0Remoto1.0;
 Consenso_CortHum2:= TRUE;//main.id0Remoto1.1;
@@ -222,6 +227,7 @@ END_VAR
       <LineId Id="88" Count="2" />
     </LineIds>
     <LineIds Name="FuncParoNodoRemote1CorteH2.LinkadoEntradas">
+      <LineId Id="41" Count="4" />
       <LineId Id="2" Count="0" />
       <LineId Id="40" Count="0" />
       <LineId Id="3" Count="1" />

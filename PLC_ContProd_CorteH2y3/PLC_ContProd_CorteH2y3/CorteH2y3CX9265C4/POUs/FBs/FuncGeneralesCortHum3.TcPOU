@@ -5,6 +5,7 @@
 VAR_INPUT
 IndexListFormatoTabla:INT;
 IndexJustificacionParo:INT;
+IndexListEspesorTabla:INT;
 END_VAR
 VAR_OUTPUT
 	//Modelo dividido en strings para DataBase
@@ -43,6 +44,7 @@ Fin_Produccion();
 END_IF;
 IF P_EscribirModelo THEN
 	ListFormatoTabla(); 
+	ListadoEspesorTabla();
 	Inicio_Nuevo_Modelo();
 	
 END_IF
@@ -95,7 +97,7 @@ RegistroLocalDataBase.aHistoricStrTablasCH3[0].Fecha := Fecha_PLC.StringDateHour
 RegistroLocalDataBase.aHistoricStrTablasCH3[0].Modelo := FuncParoNodoLocalCorteH3.sModeloActualTabla;
 RegistroLocalDataBase.aHistoricStrTablasCH3[0].Formato := FuncParoNodoLocalCorteH3.sFormatoActualTabla;
 RegistroLocalDataBase.aHistoricStrTablasCH3[0].Espesor :=FuncParoNodoLocalCorteH3.sEspesorActualTabla;
-RegistroLocalDataBase.aHistoricStrTablasCH3[0].Maquina := 'Corte húmedo 4';
+RegistroLocalDataBase.aHistoricStrTablasCH3[0].Maquina := 'Corte húmedo 2';
 RegistroLocalDataBase.aHistoricStrTablasCH3[0].Cont_Piezas := FuncParoNodoLocalCorteH3.Funci_CortHum3.Cont_Piezas_Ftc;
 RegistroLocalDataBase.aHistoricStrTablasCH3[0].t_Entre_Piez_Ftc := FuncParoNodoLocalCorteH3.Funci_CortHum3.t_Entre_Piez_Ftc;
 RegistroLocalDataBase.aHistoricStrTablasCH3[0].S_Justi_Paro_Ftc := FuncParoNodoLocalCorteH3.Funci_CortHum3.S_Justi_Paro_Ftc;
@@ -147,6 +149,29 @@ s_EspesorActualTabla:= s_EspesorEleccionTabla;
 
 
 ]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="ListadoEspesorTabla" Id="{4e77b5bb-eaef-44dd-bdb4-a85d92619561}">
+      <Declaration><![CDATA[METHOD ListadoEspesorTabla : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[// Función para poder realizar el desplegable de espesor de la tabla en el Visu
+IF IndexListEspesorTabla <> 5 THEN 
+	IF IndexListEspesorTabla = 1 THEN 
+		s_EspesorEleccionTabla:='3';
+	END_IF
+	IF IndexListEspesorTabla = 2 THEN 
+		s_EspesorEleccionTabla:='6';
+	END_IF
+	IF IndexListEspesorTabla = 3 THEN 
+		s_EspesorEleccionTabla:='12';
+	END_IF
+	IF IndexListEspesorTabla = 4 THEN 
+		s_EspesorEleccionTabla:='20';
+	END_IF
+END_IF]]></ST>
       </Implementation>
     </Method>
     <Method Name="ListadoJustificacionParo" Id="{27af46e1-573b-41e6-8317-e3890d2939ed}">
@@ -248,6 +273,7 @@ END_IF]]></ST>
     <LineIds Name="FuncGeneralesCortHum3">
       <LineId Id="25" Count="6" />
       <LineId Id="102" Count="0" />
+      <LineId Id="175" Count="0" />
       <LineId Id="32" Count="0" />
       <LineId Id="101" Count="0" />
       <LineId Id="33" Count="0" />
@@ -302,6 +328,12 @@ END_IF]]></ST>
       <LineId Id="19" Count="0" />
       <LineId Id="14" Count="0" />
       <LineId Id="13" Count="0" />
+    </LineIds>
+    <LineIds Name="FuncGeneralesCortHum3.ListadoEspesorTabla">
+      <LineId Id="69" Count="3" />
+      <LineId Id="74" Count="2" />
+      <LineId Id="78" Count="6" />
+      <LineId Id="59" Count="0" />
     </LineIds>
     <LineIds Name="FuncGeneralesCortHum3.ListadoJustificacionParo">
       <LineId Id="5" Count="0" />
