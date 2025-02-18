@@ -318,6 +318,11 @@ PLC Maestro"</v>
               <l n="LanguageTexts" t="ArrayList" />
             </o>
             <o>
+              <v n="TextID">"689"</v>
+              <v n="TextDefault">"Home"</v>
+              <l n="LanguageTexts" t="ArrayList" />
+            </o>
+            <o>
               <v n="TextID">"681"</v>
               <v n="TextDefault">"Hora Fin Paro"</v>
               <l n="LanguageTexts" t="ArrayList" />

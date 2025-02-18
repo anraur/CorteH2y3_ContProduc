@@ -60,6 +60,7 @@ Id;Default
 907;HISTÓRICO
 532;Histórico
 248;HISTÓRICO PRODUCCIÓN
+689;Home
 681;Hora Fin Paro
 1204;HORA INICIO
 553;Hora Inicio del paro
